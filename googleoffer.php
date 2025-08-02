@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       GOOGLE Offer | تخفیف هوشمند برای کاربران گوگل
  * Description:       تخفیف هوشمند و خودکار برای کاربرانی که از طریق جستجوی گوگل وارد سایت شما می‌شوند.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            ReadyStudio | FazelGhaemi
  * Author URI:        https://readystudio.ir/
  * License:           GPL v2 or later
@@ -16,6 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
+// *** کد اضافه شده برای سازگاری با HPOS ***
+add_action( 'before_woocommerce_init', function() {
+	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+	}
+} );
+// *****************************************
+
+
 /**
  * The main plugin class.
  */
@@ -26,7 +35,7 @@ final class GoogleOffer {
      *
      * @var string
      */
-    const VERSION = '1.0.0';
+    const VERSION = '1.0.1'; // نسخه افزونه را به 1.0.1 تغییر دادیم
 
     /**
      * The single instance of the class.
