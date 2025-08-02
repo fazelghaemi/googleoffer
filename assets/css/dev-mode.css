@@ -1,0 +1,128 @@
+/*
+ * Google Offer - Dev Mode Panel Stylesheet
+ * UI/UX Revamp - 2025 Google Material Design & Glassmorphism
+ * Author: ReadyStudio | FazelGhaemi
+ */
+
+/* --- Keyframes for Entry Animation --- */
+@keyframes slide-in-from-bottom {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Main Panel --- */
+#go-dev-panel {
+    /* -- Local Variables for Dark Theme -- */
+    --panel-bg: rgba(30, 31, 34, 0.85); /* Semi-transparent dark bg */
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #e8eaed; /* Off-white for readability */
+    --text-secondary: #9aa0a6;
+    --accent-color: #8ab4f8; /* A lighter Google Blue for dark backgrounds */
+    --accent-color-hover: rgba(138, 180, 248, 0.1);
+    --success-color: #81c995; /* A pleasant Google Green */
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    
+    /* --- The Glassmorphism Effect --- */
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    color: var(--text-primary);
+    padding: 18px 22px;
+    z-index: 99999;
+    
+    /* --- Animation --- */
+    animation: slide-in-from-bottom 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Panel Title with Icon --- */
+#go-dev-panel .go-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+/* Embedded SVG Icon for the title */
+#go-dev-panel .go-panel-title::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent-color);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.44,0.17-0.48,0.41L9.2,5.77C8.61,6.01,8.08,6.33,7.58,6.71L5.2,5.75C5,5.68,4.75,5.75,4.63,5.97L2.71,9.29 c-0.11,0.2-0.06,0.47,0.12,0.61l2.03,1.58C4.82,11.69,4.8,12.01,4.8,12.33c0,0.32,0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.96 c0.04,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.48-0.41l0.36-2.96c0.59-0.24,1.12-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0.01,0.59-0.22l1.92-3.32c0.11-0.2,0.06-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: contain;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.44,0.17-0.48,0.41L9.2,5.77C8.61,6.01,8.08,6.33,7.58,6.71L5.2,5.75C5,5.68,4.75,5.75,4.63,5.97L2.71,9.29 c-0.11,0.2-0.06,0.47,0.12,0.61l2.03,1.58C4.82,11.69,4.8,12.01,4.8,12.33c0,0.32,0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.96 c0.04,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.48-0.41l0.36-2.96c0.59-0.24,1.12-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0.01,0.59-0.22l1.92-3.32c0.11-0.2,0.06-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z'%3E%3C/path%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+/* --- Content Area --- */
+#go-dev-panel .go-panel-content p {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#go-dev-panel .go-panel-content strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Override inline style from PHP for better theme consistency */
+#go-dev-panel .go-panel-content strong[style*="color: #28a745;"] {
+    color: var(--success-color) !important;
+}
+
+
+/* --- Action Buttons --- */
+#go-dev-panel .go-panel-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#go-dev-panel .go-panel-actions .button {
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    
+    color: var(--accent-color);
+    background-color: transparent;
+    
+    border: 1px solid rgba(138, 180, 248, 0.5); /* Semi-transparent border */
+    border-radius: 18px; /* Fully rounded pill shape */
+    padding: 8px 16px;
+    
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#go-dev-panel .go-panel-actions .button:hover {
+    background-color: var(--accent-color-hover);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}

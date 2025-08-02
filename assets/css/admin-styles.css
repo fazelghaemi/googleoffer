@@ -1,0 +1,219 @@
+/*
+ * Google Offer - Admin Stylesheet
+ * UI/UX Revamp - 2025 Google Material Design Inspired
+ * Author: ReadyStudio | FazelGhaemi
+ */
+
+/* --- Variable Definitions --- */
+:root {
+    --go-primary-color: #4285F4; /* Google Blue */
+    --go-primary-color-dark: #3367D6;
+    --go-light-background: #f8f9fa;
+    --go-card-background: #ffffff;
+    --go-text-primary: #202124; /* Google's dark gray for text */
+    --go-text-secondary: #5f6368;
+    --go-border-color: #dadce0;
+    --go-input-background: #f1f3f4;
+    --go-border-radius-large: 12px;
+    --go-border-radius-small: 8px;
+    --go-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+    --go-shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* --- General Layout & Typography --- */
+body {
+    background-color: var(--go-light-background);
+}
+
+.go-settings-wrap {
+    max-width: 980px;
+    margin: 2rem auto;
+}
+
+.go-settings-wrap h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--go-text-primary);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--go-border-color);
+}
+
+/* --- Main Settings Card --- */
+.go-settings-wrap form {
+    background: var(--go-card-background);
+    border-radius: var(--go-border-radius-large);
+    padding: 1.5rem 2.5rem;
+    box-shadow: var(--go-shadow-light);
+    border: 1px solid transparent; /* To contain children */
+}
+
+/* --- Form Table Structure --- */
+.form-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.form-table tr {
+    border-bottom: 1px solid var(--go-border-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.form-table tr:last-child {
+    border-bottom: none;
+}
+
+.form-table tr:hover {
+    background-color: var(--go-light-background);
+}
+
+.form-table th, .form-table td {
+    padding: 24px 10px;
+    vertical-align: top;
+    text-align: right;
+}
+
+.form-table th {
+    width: 280px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--go-text-primary);
+    padding-top: 28px;
+}
+
+/* --- Input Fields & Controls --- */
+.go-settings-wrap input[type="text"],
+.go-settings-wrap input[type="number"],
+.go-settings-wrap textarea,
+.go-settings-wrap select {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--go-input-background);
+    border: 2px solid transparent;
+    border-radius: var(--go-border-radius-small);
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--go-text-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+.go-settings-wrap input[type="text"]:focus,
+.go-settings-wrap input[type="number"]:focus,
+.go-settings-wrap textarea:focus,
+.go-settings-wrap select:focus {
+    outline: none;
+    border-color: var(--go-primary-color);
+    background-color: var(--go-card-background);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
+}
+
+.go-settings-wrap textarea {
+    min-height: 120px;
+}
+
+.go-settings-wrap p.description {
+    font-size: 13px;
+    color: var(--go-text-secondary);
+    margin-top: 8px;
+    font-style: normal;
+}
+
+/* --- Custom Checkbox (Toggle Switch) --- */
+.go-settings-wrap input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 48px;
+    height: 28px;
+    background-color: #bdc1c6;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    vertical-align: middle;
+}
+
+.go-settings-wrap input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: white;
+    top: 3px;
+    left: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.go-settings-wrap input[type="checkbox"]:checked {
+    background-color: var(--go-primary-color);
+}
+
+.go-settings-wrap input[type="checkbox"]:checked::before {
+    transform: translateX(19px);
+}
+
+/* --- WooCommerce Product Selector (Select2) --- */
+.go-settings-wrap .select2-container .select2-selection--multiple {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--go-input-background);
+    border: 2px solid transparent !important;
+    border-radius: var(--go-border-radius-small) !important;
+    padding: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.go-settings-wrap .select2-container--focus .select2-selection--multiple {
+    border-color: var(--go-primary-color) !important;
+    background-color: var(--go-card-background);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
+}
+
+.go-settings-wrap .select2-container .select2-selection__choice {
+    background-color: var(--go-primary-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--go-border-radius-small) !important;
+    padding: 5px 10px !important;
+}
+
+.go-settings-wrap .select2-selection__choice__remove {
+    color: white !important;
+    margin-right: 5px !important;
+}
+.go-settings-wrap .select2-selection__choice__remove:hover {
+    color: rgba(255,255,255,0.75) !important;
+}
+
+
+/* --- Submit Button --- */
+.go-settings-wrap .submit {
+    padding: 20px 10px 10px;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--go-border-color);
+}
+
+.go-settings-wrap .button-primary {
+    background-color: var(--go-primary-color);
+    border: none;
+    border-radius: var(--go-border-radius-small);
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+    box-shadow: var(--go-shadow-light);
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.go-settings-wrap .button-primary:hover {
+    background-color: var(--go-primary-color-dark);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+.go-settings-wrap .button-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--go-shadow-light);
+}
