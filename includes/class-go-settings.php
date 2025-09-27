@@ -5,7 +5,16 @@ class GO_Settings {
 
     private $options;
 
-    public function __construct() {
+    /**
+     * Styles and scripts version.
+     *
+     * @var string
+     */
+    private $version;
+
+    public function __construct( $version = GoogleOffer::VERSION ) {
+        $this->version = $version;
+
         add_action( 'admin_menu', [ $this, 'add_plugin_page' ] );
         add_action( 'admin_init', [ $this, 'page_init' ] );
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
@@ -111,12 +120,12 @@ class GO_Settings {
         }
     }
     
-    public function enqueue_admin_assets($hook) {
-        if ($hook != 'woocommerce_page_googleoffer-settings') {
+    public function enqueue_admin_assets( $hook ) {
+        if ( $hook !== 'woocommerce_page_googleoffer-settings' ) {
             return;
         }
-        wp_enqueue_style( 'go-admin-styles', GO_PLUGIN_URL . 'assets/css/admin-styles.css', [], self::VERSION );
+        wp_enqueue_style( 'go-admin-styles', GO_PLUGIN_URL . 'assets/css/admin-styles.css', [], $this->version );
         wp_enqueue_script( 'wc-enhanced-select' );
-        wp_enqueue_script( 'go-admin-scripts', GO_PLUGIN_URL . 'assets/js/admin-scripts.js', ['jquery', 'wc-enhanced-select'], self::VERSION, true );
+        wp_enqueue_script( 'go-admin-scripts', GO_PLUGIN_URL . 'assets/js/admin-scripts.js', [ 'jquery', 'wc-enhanced-select' ], $this->version, true );
     }
 }
