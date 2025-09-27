@@ -3,7 +3,7 @@
  * Plugin Name:       GOOGLE Offer | تخفیف هوشمند برای کاربران گوگل
  * Description:       تخفیف هوشمند و خودکار برای کاربرانی که از طریق جستجوی گوگل وارد سایت شما می‌شوند.
  * Version:           1.0.1
- * Version:           1.1.0
+ * Version:           1.2.0
  * Author:            ReadyStudio | FazelGhaemi
  * Author URI:        https://readystudio.ir/
  * License:           GPL v2 or later
@@ -37,7 +37,7 @@ final class GoogleOffer {
      * @var string
      */
     const VERSION = '1.0.1'; // نسخه افزونه را به 1.0.1 تغییر دادیم
-    const VERSION = '1.1.0';
+    const VERSION = '1.2.0';
 
     /**
      * The single instance of the class.
@@ -63,7 +63,8 @@ final class GoogleOffer {
     private function __construct() {
         $this->define_constants();
         add_action( 'plugins_loaded', [ $this, 'on_plugins_loaded' ], -1 );
-@@ -66,54 +66,55 @@ final class GoogleOffer {
+    }
+
     /**
      * Define Plugin Constants.
      */
@@ -71,6 +72,17 @@ final class GoogleOffer {
         define( 'GO_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
         define( 'GO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
         define( 'GO_COOKIE_NAME', 'go_google_user_status' );
+        if ( ! defined( 'GO_PLUGIN_PATH' ) ) {
+            define( 'GO_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+        }
+
+        if ( ! defined( 'GO_PLUGIN_URL' ) ) {
+            define( 'GO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+        }
+
+        if ( ! defined( 'GO_COOKIE_NAME' ) ) {
+            define( 'GO_COOKIE_NAME', 'go_google_user_status' );
+        }
     }
 
     /**
